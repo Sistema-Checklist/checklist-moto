@@ -21,17 +21,11 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tabs": "^1.0.4",
     "@radix-ui/react-toast": "^1.1.5",
-<<<<<<< HEAD
-    "browser-image-compression": "^2.0.2",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.0.0",
-=======
     "@supabase/supabase-js": "^2.39.1",
     "browser-image-compression": "^2.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "date-fns": "^4.1.0",
->>>>>>> e6341e13c18ec2e9698b8bfd0bf48aa94c6d8743
     "framer-motion": "^10.16.4",
     "html2canvas": "^1.4.1",
     "jspdf": "^2.5.1",
