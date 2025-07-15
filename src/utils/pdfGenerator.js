@@ -77,16 +77,24 @@ export const generatePDF = async (vistoriaData, checklistItems) => {
     const imgWidth = 55; 
     logoHeight = (imgProps.height * imgWidth) / imgProps.width;
     checkPageBreak(logoHeight);
+<<<<<<< HEAD
     pdf.addImage(logoDataUrl, 'JPEG', margin, yPosition, imgWidth, logoHeight);
+=======
+    pdf.addImage(logoDataUrl, 'PNG', margin, yPosition, imgWidth, logoHeight);
+>>>>>>> e6341e13c18ec2e9698b8bfd0bf48aa94c6d8743
   }
 
   const headerTextX = margin + (logoDataUrl ? 65 : 0); 
   let companyInfoY = yPosition;
+<<<<<<< HEAD
   companyInfoY = addText('LocAuto - Aluguel de Motos', headerTextX, companyInfoY, { fontSize: 16, style: 'bold', color: [0, 90, 110] });
   companyInfoY = addText(`CNPJ: ${CNPJ_EMPRESA}`, headerTextX, companyInfoY, { fontSize: 7, color: [70, 70, 70] });
   companyInfoY = addText(`Telefone: ${TELEFONE_EMPRESA}`, headerTextX, companyInfoY, { fontSize: 7, color: [70, 70, 70] });
   companyInfoY = addText(`Endereço: ${ENDERECO_EMPRESA}`, headerTextX, companyInfoY, { fontSize: 7, color: [70, 70, 70] });
 
+=======
+  companyInfoY = addText('Checklist De Motos', headerTextX, companyInfoY, { fontSize: 18, style: 'bold', color: [99, 102, 241] });
+>>>>>>> e6341e13c18ec2e9698b8bfd0bf48aa94c6d8743
   yPosition = Math.max(yPosition + logoHeight, companyInfoY) + sectionGap;
   
   checkPageBreak(1);
@@ -229,7 +237,11 @@ export const generatePDF = async (vistoriaData, checklistItems) => {
   }
   pdf.setDrawColor(100, 100, 100);
   pdf.line(signatureXvistoriador, signatureY + signatureHeight + 4, signatureXvistoriador + signatureWidth, signatureY + signatureHeight + 4);
+<<<<<<< HEAD
   let textYVistoriador = addText('Vistoriador (LocAuto)', signatureXvistoriador, signatureY + signatureHeight + 12, { fontSize: 8, maxWidth: signatureWidth });
+=======
+  let textYVistoriador = addText('Vistoriador', signatureXvistoriador, signatureY + signatureHeight + 12, { fontSize: 8, maxWidth: signatureWidth });
+>>>>>>> e6341e13c18ec2e9698b8bfd0bf48aa94c6d8743
   addText(`CNPJ: ${CNPJ_EMPRESA}`, signatureXvistoriador, textYVistoriador, { fontSize: 7, maxWidth: signatureWidth });
 
 
@@ -251,14 +263,22 @@ export const generatePDF = async (vistoriaData, checklistItems) => {
     pdf.setPage(i);
     pdf.setFontSize(7);
     pdf.setTextColor(120, 120, 120);
+<<<<<<< HEAD
     const footerText = `Relatório gerado em ${new Date().toLocaleDateString('pt-BR')} às ${new Date().toLocaleTimeString('pt-BR')} | LocAuto`;
+=======
+    const footerText = `Relatório gerado em ${new Date().toLocaleDateString('pt-BR')} às ${new Date().toLocaleTimeString('pt-BR')} | Checklist De Motos`;
+>>>>>>> e6341e13c18ec2e9698b8bfd0bf48aa94c6d8743
     const footerPageText = `Página ${i} de ${totalPages}`;
     
     const footerTextWidth = pdf.getStringUnitWidth(footerText) * 7 / pdf.internal.scaleFactor;
     pdf.text(footerText, margin, pageHeight - margin / 2.5);
     pdf.text(footerPageText, pageWidth - margin - (pdf.getStringUnitWidth(footerPageText) * 7 / pdf.internal.scaleFactor), pageHeight - margin / 2.5);
   }
+<<<<<<< HEAD
 
   const fileName = `Vistoria_LocAuto_${vistoriaData.placa || 'S_PLACA'}_${vistoriaData.data.replace(/-/g, '')}.pdf`;
+=======
+  const fileName = `Checklist_Motos_${vistoriaData.placa || 'S_PLACA'}_${vistoriaData.data.replace(/-/g, '')}.pdf`;
+>>>>>>> e6341e13c18ec2e9698b8bfd0bf48aa94c6d8743
   pdf.save(fileName);
 };

@@ -94,7 +94,10 @@ const AgendamentoPublicoPage = ({ onSolicitacaoEnviada }) => {
       transition={{ duration: 0.6 }}
       className="container mx-auto p-4 max-w-2xl flex flex-col items-center pt-8 md:pt-16"
     >
+<<<<<<< HEAD
       <VistoriaHeader />
+=======
+>>>>>>> e6341e13c18ec2e9698b8bfd0bf48aa94c6d8743
       <Card className="mt-8 w-full card-shadow">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center text-gray-700 flex items-center justify-center">

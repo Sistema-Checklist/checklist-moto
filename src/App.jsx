@@ -15,6 +15,12 @@ import {
 import { useToast } from '@/components/ui/use-toast';
 import VistoriaHeader from '@/components/vistoria/VistoriaHeader';
 import { PwaInstallProvider } from '@/components/PwaInstallPrompt';
+<<<<<<< HEAD
+=======
+import { useAuth } from '@/contexts/SupabaseAuthContext';
+import SuperAdminPanel from '@/pages/SuperAdminPanel';
+import LoginPage from '@/pages/LoginPage';
+>>>>>>> e6341e13c18ec2e9698b8bfd0bf48aa94c6d8743
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState('vistoria'); 
@@ -22,11 +28,20 @@ const App = () => {
   const [agendamentoParaAnalisar, setAgendamentoParaAnalisar] = useState(null);
   const { toast } = useToast();
   const SEU_NUMERO_WHATSAPP = "5515991653601"; 
+<<<<<<< HEAD
+=======
+  const { user, signOut } = useAuth();
+  const isSuperAdmin = user?.email === 'kauankg@hotmail.com';
+>>>>>>> e6341e13c18ec2e9698b8bfd0bf48aa94c6d8743
 
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#/', '');
+<<<<<<< HEAD
       const validPages = ['vistoria', 'locatarios', 'motos', 'agendamentos', 'agendar-publico'];
+=======
+      const validPages = ['vistoria', 'locatarios', 'motos', 'agendamentos', 'agendar-publico', 'admin'];
+>>>>>>> e6341e13c18ec2e9698b8bfd0bf48aa94c6d8743
       
       if (hash === 'agendar-publico') {
         setCurrentPage('agendar-publico');
@@ -107,6 +122,14 @@ const App = () => {
     setAgendamentoParaAnalisar(null);
   };
 
+<<<<<<< HEAD
+=======
+  const handleLogout = async () => {
+    await signOut();
+    window.location.reload();
+  };
+
+>>>>>>> e6341e13c18ec2e9698b8bfd0bf48aa94c6d8743
   const renderPage = () => {
     switch (currentPage) {
       case 'vistoria':
@@ -117,6 +140,11 @@ const App = () => {
         return <MotosPage />;
       case 'agendamentos':
         return <AgendamentosPage initialAgendamentoParaAnalisar={agendamentoParaAnalisar} clearInitialAgendamentoParaAnalisar={clearAgendamentoParaAnalisar} onNavigateToAgendamentoPublico={() => navigateTo('agendar-publico')} />;
+<<<<<<< HEAD
+=======
+      case 'admin':
+        return <SuperAdminPanel />;
+>>>>>>> e6341e13c18ec2e9698b8bfd0bf48aa94c6d8743
       case 'agendar-publico':
         return <AgendamentoPublicoPage onSolicitacaoEnviada={handleNovaSolicitacaoPublica}/>;
       default:
@@ -126,13 +154,24 @@ const App = () => {
   
   const showHeaderAndMenu = currentPage !== 'agendar-publico';
 
+<<<<<<< HEAD
+=======
+  if (!user) {
+    return <LoginPage />;
+  }
+
+>>>>>>> e6341e13c18ec2e9698b8bfd0bf48aa94c6d8743
   return (
     <PwaInstallProvider>
       <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
         {showHeaderAndMenu && (
           <header className="bg-white shadow-md sticky top-0 z-50">
             <div className="container mx-auto px-1 py-1 sm:px-2 sm:py-2">
+<<<<<<< HEAD
               <VistoriaHeader />
+=======
+              <VistoriaHeader userName={user?.user_metadata?.name || user?.email || ''} onLogout={handleLogout} />
+>>>>>>> e6341e13c18ec2e9698b8bfd0bf48aa94c6d8743
               <NavigationMenu className="mt-1 sm:mt-2">
                 <NavigationMenuList className="flex flex-wrap justify-center gap-0.5 sm:gap-1">
                   <NavigationMenuItem>
@@ -155,6 +194,16 @@ const App = () => {
                       <CalendarClock size={14} /> <span className="hidden sm:inline">Agendamentos</span>
                     </Button>
                   </NavigationMenuItem>
+<<<<<<< HEAD
+=======
+                  {isSuperAdmin && (
+                    <NavigationMenuItem>
+                      <Button variant={currentPage === 'admin' ? "default" : "ghost"} onClick={() => navigateTo('admin')} className="flex items-center gap-1 text-xxs px-1.5 py-1 sm:text-xs sm:px-2 sm:py-1.5">
+                        <UserPlus size={14} /> <span className="hidden sm:inline">Super Admin</span>
+                      </Button>
+                    </NavigationMenuItem>
+                  )}
+>>>>>>> e6341e13c18ec2e9698b8bfd0bf48aa94c6d8743
                 </NavigationMenuList>
               </NavigationMenu>
             </div>
